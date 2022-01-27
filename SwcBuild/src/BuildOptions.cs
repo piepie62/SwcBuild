@@ -190,7 +190,7 @@ namespace SwcBuild
             IncludeLibraries = new string[elements.Count];
 
             for (int i = 0; i < IncludeLibraries.Length; i++)
-                IncludeLibraries[i] = elements[i].Attributes[A.Path].Value;
+                IncludeLibraries[i] = Environment.ExpandEnvironmentVariables(elements[i].Attributes[A.Path].Value);
         }
 
         private void ParseLibraryPaths(list elements)
@@ -200,7 +200,7 @@ namespace SwcBuild
             LibraryPaths = new string[elements.Count];
 
             for (int i = 0; i < LibraryPaths.Length; i++)
-                LibraryPaths[i] = elements[i].Attributes[A.Path].Value;
+                LibraryPaths[i] = Environment.ExpandEnvironmentVariables(elements[i].Attributes[A.Path].Value);
         }
 
         private void ParseExternalLibraryPaths(list elements)
@@ -210,7 +210,7 @@ namespace SwcBuild
             ExternalLibraryPaths = new string[elements.Count];
 
             for (int i = 0; i < ExternalLibraryPaths.Length; i++)
-                ExternalLibraryPaths[i] = elements[i].Attributes[A.Path].Value;
+                ExternalLibraryPaths[i] = Environment.ExpandEnvironmentVariables(elements[i].Attributes[A.Path].Value);
         }
 
         private void ParseRslPaths(list elements)
@@ -220,7 +220,7 @@ namespace SwcBuild
             RslPaths = new string[elements.Count];
 
             for (int i = 0; i < RslPaths.Length; i++)
-                RslPaths[i] = elements[i].Attributes[A.Path].Value;
+                RslPaths[i] = Environment.ExpandEnvironmentVariables(elements[i].Attributes[A.Path].Value);
         }
 
         private static bool Flag(string value) => ConvertHelper.ToBoolean(value);
