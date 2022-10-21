@@ -62,7 +62,7 @@ namespace SwcBuild
                         if (filename == null || Exclude.Contains(filename))
                             continue;
 
-                        string destination = Path.Combine("docs", filename);
+                        string destination = "docs/" + filename;
 
                         using (var original = File.OpenRead(file))
                         using (var compressed = archive.CreateEntry(destination).Open())
